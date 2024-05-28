@@ -1,0 +1,36 @@
+pre {
+	display: block;
+	width: fit-content;
+	background-color: rgb(220,220,220);
+	padding: 0.5vh 1vh;
+	margin: 1vh 0;
+	font-size: calc(1.5vh);
+    line-height: calc(1.8vh);
+	border-top: 1px solid rgb(180, 180, 180);
+    border-left: 1px solid rgb(180, 180, 180);
+    border-radius: 2px;
+}
+
+pre.wrap {
+	white-space: pre-wrap;	
+}
+
+easy-tablet-example #navigation > div, button {
+	font-size: calc(2vh);
+	line-height: calc(2.5vh);
+	text-align: center;
+	padding: calc(0.3vh) calc(1vh);
+	border: 1px solid var(--borderColor);
+	border-radius: calc(0.5vh);
+	cursor: pointer;
+	font-family: Barlow;
+}
+
+easy-tablet-example .page .heading {
+    margin-bottom: calc(2vh);
+}
+
+easy-tablet-example .page .label {
+    margin-top: calc(1.5vh);
+    margin-bottom: calc(1.5vh);
+}

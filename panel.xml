@@ -1,0 +1,9 @@
+
+<PlaneHTMLConfig>
+  <Instrument>
+    <Name>Easy_Tablet_Example</Name>
+	<Electric>
+		1
+	</Electric>
+  </Instrument>
+</PlaneHTMLConfig>

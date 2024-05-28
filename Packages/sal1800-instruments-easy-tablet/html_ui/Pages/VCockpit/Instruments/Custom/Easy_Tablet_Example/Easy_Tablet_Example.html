@@ -1,0 +1,217 @@
+<script type="text/html" id="Easy_Tablet_Example">
+    <div id="Mainframe">
+        <div id="Electricity" state="off">
+			<div id="mainDisplay">
+				<div id="pages">
+
+					<div class="page active" id="overview" data-name="Overview">
+						<div class="heading">Easy Tablet</div>
+
+						<div class="text">
+							The Easy Tablet framework extends the BaseInstrument class to provide a set of UI components so you can build interfaces that can set or toggle Sim Vars or display Sim Var values.
+						</div>
+
+						<div class="text">
+							When you create your own custom tablet instrument, you just need to extend from the EasyTablet class and then you can use any of the layout and components in your HTML template without having to add Javascript code. 
+						</div>	
+						<div class="text">
+							You can inspect the files for this Tablet Example file to see how it's implemented.
+						</div>
+						<div class="text">
+							Import the Easy Template class and CSS in your HTML template:
+<pre class="wrap">&lt;script type="text/html" import-script="/Pages/VCockpit/Instruments/html_ui/easy_tablet/easy_tablet.js"&gt;&lt;/script&gt;</pre>
+<pre class="wrap">&lt;link rel="stylesheet" href="/Pages/VCockpit/Instruments/html_ui/easy_tablet/easy_tablet.css" /&gt;</pre>
+	 						In your JS file, you can extend from the EasyTablet class:
+							<pre>class EasyTabletExample extends EasyTablet {</pre>
+						</div>							
+
+					</div>
+					<div class="page" id="layout" data-name="Layout 1">
+						<div class="heading">Layout Elements</div>
+						<div class="label">Pages</div>
+
+						<div class="text">
+							<p>Pages are shown one at a time. For each page, a navigation link will be added to the Navigation section.</p>
+
+							<p>A page element must have a class name of "page" and a data-name attribute that will be used for the navigation link.</p>
+							<pre>&lt;div class="page active" id="overview" data-name="Overview"&gt;</pre>
+							<p>Adding a class of "active" to a page will make that page the first displayed.</p>
+						</div>
+
+
+						<div class="label">Columns</div>
+						<div class="cols">
+							<div class="col">
+								
+								<div class="text">
+									<p>Columns can be used inside a page to make a two-column layout. Create a div with a class of "cols" to form the column group. Then add two divs with a class of "col" to create each column.</p>
+								</div>
+							</div>
+							<div class="col">										
+<pre>
+&lt;div class="cols"&gt;
+  &lt;div class="col"&gt;
+  &lt;/div&gt;
+  &lt;div class="col"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+							</div>
+						</div>
+
+						<div class="label">Labels</div>
+						<div class="text">Lables are like sub headings. Create a div with a class of "label".  The bold "Lables" above is a label. </div>
+
+						<div class="label">Text Block</div>
+						<div class="text">Text blocks are a div with class "text". They have some built-in margin. You can also use paragraph elements as text blocks.</div>						
+					</div>
+					<div class="page" id="layout2" data-name="Layout 2">
+						<div class="heading">Layout Elements (cont.)</div>
+
+						<div class="label">Spacers</div>
+						<div class="text">A div element with a class of "space" will create some vertical space.</div>
+
+						<div class="label">Section</div>
+						<div class="text">A div element with a class of "section" can be used to group elements. It will have some bottom margin.</div>	
+
+						<div class="label">Margin Classes</div>
+						<div class="text">You can add any of these classes to a div to add margin-top of increasing amounts: "mt-0", "mt-1", "mt-2", "mt-3"</div>
+						<div class="text">These classes will add margin-bottom of increasing amounts: "mb-0", "mb-1", "mb-2", "mb-3"</div>
+
+						<div class="label">Padding Classes</div>
+						<div class="text">You can add any of these classes to a div to add padding-left of increasing amounts: "pl-0", "pl-1", "pl-2", "pl-3", "pl-4", "pl-5"</div>
+						<div class="text">These classes will add padding-right of increasing amounts: "pr-0", "pr-1", "pr-2", "pr-3", "pr-4", "pr-5"</div>
+
+						<div class="label">Overriding CSS</div>
+						<div class="text">In your instrument's CSS file, you can override any part of the Easy Tablet CSS. Prefix the selector with your instrument's element. </div>
+						
+<pre class="wrap">easy-tablet-example .indicator {
+  border-radius: 0;
+}
+</pre>
+
+					</div>
+					<div class="page" id="components" data-name="Components 1">
+						<div class="heading">Components</div>
+
+						<div class="label">Toggle Switches</div>
+
+						<div class="text">Class name "toggle". Required: data-var. Always boolean.</div>
+
+						<div class="toggle" data-var="L:EXAMPLE_TOGGLE">Example Toggle</div>
+
+						<pre>&lt;div class="toggle" data-var="L:EXAMPLE_TOGGLE"&gt;Toggle Switch&lt;/div&gt;</pre>
+
+						<div class="label">Event Switches</div>
+						<div class="text">Class name "event". Required: data-var or data-function. Optional: data-val, data-indicator.</div>
+
+						<div class="event" data-var="K:TOGGLE_MASTER_BATTERY:1" data-indicator="A:ELECTRICAL MASTER BATTERY">Master Battery</div>
+
+						<pre class="wrap">&lt;div class="event" data-var="K:TOGGLE_MASTER_BATTERY:1" data-indicator="A:ELECTRICAL MASTER BATTERY"&gt;Master Battery&lt;/div&gt;</pre>
+
+						<div class="label">Increment Control</div>
+						<div class="text">Class name "increment". Required: data-var. Optional: data-indicator, data-val, data-min, data-max, data-step.</div>
+								
+						<div class="increment" data-var="L:EXAMPLE_INCREMENT" data-indicator="L:EXAMPLE_INCREMENT" data-min ="1" data-max="5">Example Increment:</div>
+
+						<pre class="wrap">&lt;div class="increment" data-var="L:EXAMPLE_INCREMENT" data-indicator="L:EXAMPLE_INCREMENT" data-min ="1" data-max="5"&gt;Example Increment:&lt;/div&gt;</pre>
+
+	
+					</div>
+						
+					</div>
+					<div class="page" id="components2" data-name="Components 2">
+						<div class="heading">Components (cont.)</div>
+
+						<div class="label">Info Display</div>
+
+						<div class="text">Class name "info". Inside this element should be a "indicator" with required data-indicator or data-function and optional data-units, data-decimal, data-prefix, data-suffix</div>
+
+						<div class="info inline">Example Display: 
+							<div class="indicator" data-indicator="L:EXAMPLE_DISPLAY" data-decimal="0" data-suffix=" units"></div>
+							
+						</div>
+						<div class="increment" data-var="L:EXAMPLE_DISPLAY" data-indicator="L:EXAMPLE_DISPLAY" data-min ="0" data-max="50" data-step="10"></div>
+
+
+
+<pre class="wrap">
+&lt;div class="info"&gt;Example Display: 
+	&lt;div class="indicator" data-indicator="L:EXAMPLE_DISPLAY" data-decimal="0" data-suffix=" units"&gt;&lt;/div&gt;
+&lt;/div&gt;	
+</pre>
+
+						<div class="label">Buttons</div>
+
+						<div class="text">Class name "button". Buttons work similar to event switches. Required: data-var or data-function. Optional: data-val, data-indicator.</div>						
+						<button class="button" data-var="L:EXAMPLE_BUTTON" data-val="100">Set value to 100</button>	
+
+						<div class="info inline mb-0"> Value: <div class="indicator" data-indicator="L:EXAMPLE_BUTTON"></div></div>
+
+						<pre class="wrap">&lt;button class="button" data-var="L:EXAMPLE_BUTTON" data-val="100"&gt;Set value to 100&lt;/button&gt;</pre>
+
+
+						<div class="label">Switches</div>
+
+						<div class="text">Class name "switch". Switches toggle two different SimVars. Required: two data-var attributes. Optional: data-state.</div>
+
+						<div class="switch">
+							<div data-var="L:EXAMPLE_STATE1">SimVar 1</div>
+							<div data-var="L:EXAMPLE_STATE2">SimVar 2</div>
+						</div>
+
+<pre class="wrap">
+&lt;div class="switch"&gt;
+	&lt;div data-var="L:EXAMPLE_STATE1"&gt;SimVar 1&lt;/div&gt;
+	&lt;div data-var="L:EXAMPLE_STATE2"&gt;SimVar 2&lt;/div&gt;
+&lt;/div&gt;</pre>						
+
+
+					</div>
+					<div class="page" id="utilities" data-name="Utilities">
+						<div class="heading">Utilities</div>
+
+						<div class="label">Visibility</div>
+
+						<div class="text">Any element with a data-visible attribute will be hidden when the SimVar is true. To test for false values, prepend a "!" to the SimVar. Boolean only.</div>
+
+						<div class="toggle inline" data-var="L:EXAMPLE_VISIBLE">Show/Hide</div><div class="inline pl-3" data-visible="L:EXAMPLE_VISIBLE"> Now you see me!</div> <br>
+
+						<div class="text"><pre>&lt;div data-visible="L:EXAMPLE_VISIBLE"&gt; Now you see me!&lt;/div&gt;</pre></div>
+
+						<div class="label">Disabled</div>
+
+						<div class="text">Any element with a data-disable attribute will be disabled when the SimVar is true. To test for false values, prepend a "!" to the SimVar. Boolean only.</div>
+
+						<div class="toggle inline pr-3" data-var="L:EXAMPLE_ENABLE">Enable</div><div class="toggle inline" data-disable="!L:EXAMPLE_ENABLE" data-var="L:EXAMPLE_LVAR">My Control</div> <br>
+
+						<div class="text"><pre class="wrap">&lt;div class="toggle inline" data-disable="!L:EXAMPLE_ENABLE" data-var="L:EXAMPLE_LVAR"&gt; My Control&lt;/div&gt;</pre></div>
+
+						<div class="text">Visibility and Disabled can use more than one SimVar where both have to be true to set the state. Separate the SimVars with a comma. Default logic is AND. Use data-mode="or" to use OR logic. Negate the SimVars by prepending a "!".</div>
+
+						<pre class="wrap">&lt;div class="toggle" data-disable="L:EXAMPLE_VAR1,L:EXAMPLE_VAR2" data-var="L:EXAMPLE_LVAR"&gt; My Control&lt;/div&gt;</pre>
+
+						<div class="label">Custom Functions</div>
+
+						<div class="text">All of the components so far have used simple SimVars but if you have more complex code or calculations, you can create custom functions that the components can call. See the documentation for details.</div>
+
+					</div>
+
+
+				<div id="navigation">
+					<!-- this is an empty div that will be filled with the nav links -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</script>
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/Custom/easy_tablet/easy_tablet.js"></script>
+<link rel="stylesheet" href="/Pages/VCockpit/Instruments/Custom/easy_tablet/easy_tablet.css" />
+
+<link rel="stylesheet" href="/Pages/VCockpit/Instruments/Custom/Easy_Tablet_Example/Easy_Tablet_Example.css" />
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/Custom/Easy_Tablet_Example/Easy_Tablet_Example.js"></script>
+

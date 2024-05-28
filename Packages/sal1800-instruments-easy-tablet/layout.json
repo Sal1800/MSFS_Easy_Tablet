@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/Custom/easy_tablet/easy_tablet.css",
+      "size": 6575,
+      "date": 133613441373493282
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/Custom/easy_tablet/easy_tablet.js",
+      "size": 17308,
+      "date": 133613452278847935
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/Custom/Easy_Tablet_Example/Easy_Tablet_Example.css",
+      "size": 794,
+      "date": 133613407066237495
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/Custom/Easy_Tablet_Example/Easy_Tablet_Example.html",
+      "size": 10564,
+      "date": 133613483638829855
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/Custom/Easy_Tablet_Example/Easy_Tablet_Example.js",
+      "size": 1419,
+      "date": 133613198889144246
+    }
+  ]
+}

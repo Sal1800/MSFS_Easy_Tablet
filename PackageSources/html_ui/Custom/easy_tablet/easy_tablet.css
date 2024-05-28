@@ -1,0 +1,335 @@
+		@font-face {
+		  font-family: "Barlow";
+		  src: url("/Fonts/Barlow-Medium.ttf") format("truetype");
+		  font-weight: normal;
+		  font-style: normal;
+		}
+		@font-face {
+		  font-family: "Barlow-Bold";
+		  src: url("/Fonts/Barlow-Bold.ttf") format("truetype");
+		  font-weight: normal;
+		  font-style: normal;
+		}
+
+		:root {
+			--backgroundColor: rgb(240,240,240);
+			--backgroundColorNight: rgb(20,20,20);	
+			--mainText: rgb(20,20,20);
+			--mainTextNight: rgb(240,240,240);
+			--borderColor: rgb(20,20,20);
+			--hoverColor: rgb(40,40,40);
+			--indicatorColor: rgb(40,40,40);
+			--warnColor: rgb(221,0,0);
+			--switchColor: rgb(200,200,200);
+			--textWhite: rgb(245,245,245);
+			--mapBackground: rgb(20,20,20);
+		}
+
+		 #Mainframe {
+			width: 100%;	
+			height: 100%;
+			overflow: hidden;
+		}
+		 #mainDisplay {
+			background-color: var(--backgroundColor);
+			color: var(--mainText);
+			font-family: Barlow;
+			font-size: calc(2.5vh);
+			line-height: calc(3vh);
+			position: absolute;
+			top: 0%;
+			left: 0%;
+			width: 100%;
+			height: 100%;
+		}
+
+		.mt-0 {
+			margin-top: 0 !important;
+		}
+		.mt-1 {
+			margin-top: 1vh;
+		}
+		.mt-2 {
+			margin-top: 2vh;
+		}
+		.mt-3 {
+			margin-top: 3vh;
+		}
+		.mt-up {
+		    margin-top: calc(-1.5vh);
+		}
+		.mb-0 {
+			margin-bottom: 0 !important;
+		}
+		.mb-1 {
+			margin-bottom: 1vh;
+		}
+		.mb-2 {
+			margin-bottom: 2vh;
+		}
+		.mb-3 {
+			margin-bottom: 3vh;
+		}
+		.pl-0	{
+			padding-left: 0vh;
+		}
+		.pl-1	{
+			padding-left: 1vh;
+		}
+		.pl-2	{
+			padding-left: 2vh;
+		}
+		.pl-3	{
+			padding-left: 3vh;
+		}
+		.pl-4	{
+			padding-left: 4vh;
+		}
+		.pr-5	{
+			padding-left: 5vh;
+		}
+		.pr-0	{
+			padding-right: 0vh;
+		}
+		.pr-1	{
+			padding-right: 1vh;
+		}
+		.pr-2	{
+			padding-right: 2vh;
+		}
+		.pr-3	{
+			padding-right: 3vh;
+		}
+		.pr-4	{
+			padding-right: 4vh;
+		}
+		.pr-5	{
+			padding-right: 5vh;
+		}		
+
+
+		div.inline {
+			flex: unset;
+			display: inline-block;
+		}
+
+		.page {
+			display: none;
+			flex-direction: row;
+			flex-wrap: wrap;
+			align-content: flex-start;
+			padding: calc(2vh);
+			background: var(--backgroundColor);
+			height: 92vh;
+		}
+		.page.dark {
+			background: var(--mapBackground);
+		}
+
+		.page.active {
+			display: flex;
+
+		}
+		.page .heading {
+			font-family: Barlow-Bold;
+			font-size: calc(4.5vh);
+    		line-height: calc(5vh);
+    		text-align: center;
+    		margin-bottom: calc(3vh);
+    		flex:0 1 100%;
+		}
+		.page .label {
+			font-family: Barlow-Bold;
+			margin-top: 2vh;
+			margin-bottom: 2vh;
+		    flex: 0 1 100%;
+		}
+
+		.page .label:nth-child(2), .page .text:nth-child(2), .page .cols:nth-child(2) {
+			margin-top: 0;
+		}
+
+		.page .space {
+			height: 3vh;
+			flex: 0 0 100%;
+		}
+
+		.page .text, .page p {
+			font-family: Barlow;
+			font-size: calc(2.2vh);
+		    line-height: calc(2.5vh);
+		    color: var(--mainText);
+		    margin-bottom: calc(1.5vh);
+		    flex: 0 1 100%;
+		}	
+
+		#navigation {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			align-items: center;
+			border-top: 2px solid var(--borderColor);
+			background-color: var(--backgroundColor);
+			padding: 2vh;
+			position: fixed;
+		    width: 100vw;
+		    max-width: 720px;
+		    height: 8vh;
+		    bottom: 0;
+		}
+
+		#navigation > div, button {
+    		font-size: calc(2.5vh);
+    		line-height: calc(3vh);
+    		text-align: center;
+    		padding: calc(0.5vh) calc(1vh);
+    		border: 1px solid var(--borderColor);
+    		border-radius: calc(0.5vh);
+    		cursor: pointer;
+    		font-family: Barlow;
+		}
+		#navigation > div:hover, button:hover {
+			background-color: var(--hoverColor);
+			color: var(--backgroundColor);
+		}
+
+		.cols {
+			display: flex;
+			flex: 0 0 100%;
+		}
+
+		.col {
+			flex: 0 0 50%;
+			padding-right: calc(4vh);
+		}
+
+		.col > div, .section > div {
+			margin-bottom: calc(2vh);
+		}
+		.col .space {
+			height: 3vh;
+			flex: 0 0 3vh;
+		}
+
+		.toggle, .event, .switch {
+			position: relative;
+		    font-size: calc(2.5vh);
+		    line-height: calc(3vh);
+		    padding-left: 5vh;
+		    margin-bottom: 1vh;
+		    cursor: pointer;
+		    flex: 0 1 100%;
+		    width: fit-content;
+		}
+
+		.toggle.disabled::after, .event.disabled::after, .switch.disabled::after {
+			content: ' ';
+			display: block;
+			position: absolute;
+		    left: 4vh;
+		    right: 0;
+			top: 50%;
+			height: 0;
+			border-top: 2px solid var(--borderColor);
+		}
+		.increment {
+			display: flex;
+			position: relative;
+		    font-size: calc(2.5vh);
+		    line-height: calc(3vh);
+		}
+		.increment .select {
+			display: inline-flex;
+			margin-left: calc(1.5vh);
+		}
+		.increment .select span {
+			min-width: 3vh;
+			font-size: calc(3vh);
+			text-align: center;
+		}		
+		.increment .select .dec {
+		    width: calc(2.5vh);
+			height: calc(3vh);	
+			cursor: pointer;
+		}
+		.increment .select .inc {
+		    width: calc(2.5vh);
+			height: calc(3vh);	
+			cursor: pointer;
+			transform: scaleX(-1);
+		}
+		.increment .select svg {
+		    width: calc(2.5vh);
+			height: calc(3vh);
+		}
+		.indicator {
+			width: 3vh;
+			height: 3vh;
+			border: 2px solid var(--borderColor);
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.active > .indicator, .indicator.active {
+			background-color: var(--indicatorColor);
+		}
+		.warn > .indicator, .indicator.warn {
+			background-color: var(--warnColor);
+		}		
+
+		.info {
+			position: relative;
+		    font-size: calc(2.5vh);
+		    line-height: calc(3vh);
+		    flex: 0 1 100%;
+		    margin-bottom: calc(2.5vh);
+		}
+
+		.info > .indicator {
+			width: auto;
+			position: relative;
+			display: inline-block;
+			border: none;
+			padding-left: 1vh;
+		}
+
+
+		.switch {
+			position: relative;
+			padding-left: calc(4.5vh);
+		}
+
+		.switch .indicator {
+			left: 3px;
+			top: 3px;
+			background-color: var(--indicatorColor);
+		}
+
+		.switch[data-state="true"] .indicator {
+			top: calc(3vh + 3px);
+		}
+		.switch::before {
+			content: '';
+			width: calc(3vh + 6px);
+			height: calc(6vh + 6px);
+			border: 2px solid var(--borderColor);
+			background-color: var(--switchColor);
+			border-radius: calc(1.75vh);
+			position: absolute;
+			left: 0;
+			top: 0;			
+		}
+		.switch > [data-var] {
+			
+		}
+
+		[data-visible], [data-visible].inline {
+			display: none;
+		}	
+		[data-visible].show {
+			display: block;
+		}
+		[data-visible].inline.show {
+			display: inline-block;
+		}		
