@@ -42,7 +42,7 @@ class EasyTabletExample extends EasyTablet {
     // This method is called when you use a function component
     customFunctions() {
         return {
-            usuableFuel: (units = 'gallons') => {
+            useableFuel: (units = 'gallons') => {
                 return this.getFuelUseable(units);
             },
             endurance: () => {
